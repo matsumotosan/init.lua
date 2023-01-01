@@ -36,3 +36,6 @@ vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
 -- Replace current work
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
+
+-- Toggle nvim-tree
+vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<cr>")
