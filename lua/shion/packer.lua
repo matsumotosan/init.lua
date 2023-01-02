@@ -35,8 +35,13 @@ return require('packer').startup(function(use)
       tag = 'nightly' -- optional, updated every week. (see issue #1193)
   }
 
+  -- Harpoon
   use('theprimeagen/harpoon')
+
+  -- Undotree
   use('mbbill/undotree')
+
+  -- Git
   use('tpope/vim-fugitive')
 
   -- LSP
@@ -65,6 +70,14 @@ return require('packer').startup(function(use)
   -- Auto brakcets
   use("windwp/nvim-autopairs")
 
-  -- Miscellanous
+  -- Zen mode
   use("folke/zen-mode.nvim")
+
+  -- DAP
+  use("mfussenegger/nvim-dap")
+  use("mfussenegger/nvim-dap-python")
+
+  -- ToggleTerm
+  use "akinsho/toggleterm.nvim"
+
 end)
