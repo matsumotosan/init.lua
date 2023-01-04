@@ -43,6 +43,7 @@ return require('packer').startup(function(use)
 
   -- Git
   use('tpope/vim-fugitive')
+  use('lewis6991/gitsigns.nvim')
 
   -- LSP
   use {
@@ -67,17 +68,25 @@ return require('packer').startup(function(use)
 	  }
   }
 
+  -- CoC 
+  --  use {'neoclide/coc.nvim', branch = 'release'}
+
+  -- Commenting
+  use('numToStr/Comment.nvim')
+
   -- Auto brakcets
-  use("windwp/nvim-autopairs")
+  use('windwp/nvim-autopairs')
 
   -- Zen mode
-  use("folke/zen-mode.nvim")
+  use('folke/zen-mode.nvim')
 
   -- DAP
-  use("mfussenegger/nvim-dap")
-  use("mfussenegger/nvim-dap-python")
+  use('mfussenegger/nvim-dap')
+  use('mfussenegger/nvim-dap-python')
 
   -- ToggleTerm
-  use "akinsho/toggleterm.nvim"
+  use('akinsho/toggleterm.nvim')
 
+  -- Navigation
+  use('ggandor/leap.nvim')
 end)

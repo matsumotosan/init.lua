@@ -6,6 +6,7 @@ lsp.ensure_installed({
   'sumneko_lua',
   'eslint',
   'pyright',
+  'jedi_language_server',
 })
 
 local cmp = require('cmp')
