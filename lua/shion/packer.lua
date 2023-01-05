@@ -68,6 +68,19 @@ return require('packer').startup(function(use)
 	  }
   }
 
+  -- Testing
+  use {
+      "nvim-neotest/neotest",
+      requires = {
+          "nvim-lua/plenary.nvim",
+          "nvim-treesitter/nvim-treesitter",
+          "antoinemadec/FixCursorHold.nvim",
+          "nvim-neotest/neotest-python",
+          "nvim-neotest/neotest-plenary",
+          "folke/neodev.nvim"
+      }
+  }
+
   -- CoC 
   --  use {'neoclide/coc.nvim', branch = 'release'}
 
