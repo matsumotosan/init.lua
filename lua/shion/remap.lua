@@ -41,4 +41,4 @@ vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
 -- Toggle nvim-tree
-vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<cr>")
+-- vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<cr>")

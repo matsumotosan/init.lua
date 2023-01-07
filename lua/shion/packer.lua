@@ -22,21 +22,24 @@ return require('packer').startup(function(use)
 	  end
   })
 
+  -- Icons
+  use('nvim-tree/nvim-web-devicons')
+
   -- Treesitter
   use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
   use('nvim-treesitter/playground')
 
-  -- File tree
+  -- File navigation
   use {
       'nvim-tree/nvim-tree.lua',
-      requires = {
-          'nvim-tree/nvim-web-devicons', -- optional, for file icons
-      },
       tag = 'nightly' -- optional, updated every week. (see issue #1193)
   }
-
-  -- Harpoon
   use('theprimeagen/harpoon')
+
+  -- Statusline and bufferline
+  use('nvim-lualine/lualine.nvim')
+  use('akinsho/bufferline.nvim')
+  use('moll/vim-bbye')
 
   -- Undotree
   use('mbbill/undotree')
@@ -81,8 +84,8 @@ return require('packer').startup(function(use)
       }
   }
 
-  -- CoC 
-  --  use {'neoclide/coc.nvim', branch = 'release'}
+  -- Diagnostics
+  use('folke/trouble.nvim')
 
   -- Commenting
   use('numToStr/Comment.nvim')
