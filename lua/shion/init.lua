@@ -1,6 +1,6 @@
-require("shion.set")
-require("shion.remap")
-require("shion.packer")
+require("shion.options")
+require("shion.keymaps")
+require("shion.plugins")
 
 vim.g.netrw_browse_split = 0
 vim.g.netrw_banner = 0

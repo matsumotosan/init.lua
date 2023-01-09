@@ -89,6 +89,10 @@ return require('packer').startup(function(use)
 
   -- Commenting
   use('numToStr/Comment.nvim')
+  use {
+      'kkoomen/vim-doge',
+      run = ':call doge#install()'
+  }
 
   -- Auto brakcets
   use('windwp/nvim-autopairs')

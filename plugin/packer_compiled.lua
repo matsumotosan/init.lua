@@ -265,6 +265,11 @@ _G.packer_plugins = {
     path = "/Users/shion/.local/share/nvim/site/pack/packer/start/vim-bbye",
     url = "https://github.com/moll/vim-bbye"
   },
+  ["vim-doge"] = {
+    loaded = true,
+    path = "/Users/shion/.local/share/nvim/site/pack/packer/start/vim-doge",
+    url = "https://github.com/kkoomen/vim-doge"
+  },
   ["vim-fugitive"] = {
     loaded = true,
     path = "/Users/shion/.local/share/nvim/site/pack/packer/start/vim-fugitive",
