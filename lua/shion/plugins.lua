@@ -15,7 +15,7 @@ return require('packer').startup(function(use)
 
   -- Color scheme
   use({
-	  'rose-pine/neovim',
+	  'rose-pine/nvim',
 	  as = 'rose-pine',
 	  config = function()
 		  vim.cmd('colorscheme rose-pine')
@@ -93,6 +93,7 @@ return require('packer').startup(function(use)
       'kkoomen/vim-doge',
       run = ':call doge#install()'
   }
+  use("folke/todo-comments.nvim")
 
   -- Auto brakcets
   use('windwp/nvim-autopairs')
