@@ -2,6 +2,10 @@ local keymap = vim.keymap
 
 keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
+-- Better up/down
+keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+
 -- Press jk fast to esc
 keymap.set("i", "kj", "<Esc>")
 
@@ -65,5 +69,12 @@ keymap.set("n", "<C-w><down>", "<C-w>-")
 keymap.set("n", "<tab>", ":bnext<CR>")
 keymap.set("n", "<S-tab>", ":bprev<CR>")
 
--- Save file
--- keymap.set("n", "<C-s>", ":w<CR>")
+-- better indenting
+keymap.set("v", "<", "<gv")
+keymap.set("v", ">", ">gv")
+
+-- new file
+keymap.set("n", "<leader>fn", "<cmd>enew<cr>", { desc = "New File" })
+
+-- quit
+keymap.set("n", "<leader>qq", "<cmd>qa<cr>", { desc = "Quit all" })
