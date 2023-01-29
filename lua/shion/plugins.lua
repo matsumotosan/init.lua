@@ -1,4 +1,3 @@
--- This file can be loaded by calling `lua require('plugins')` from your init.vim
 local ensure_packer = function()
   local fn = vim.fn
   local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
@@ -25,13 +24,14 @@ return require('packer').startup(function(use)
   }
 
   -- Color scheme
-  use({
-	  'catppuccin/nvim',
-	  as = 'catppuccin',
-	  config = function()
-		  vim.cmd('colorscheme catppuccin')
-	  end
-  })
+  use('catppuccin/nvim')
+  use {
+      'goolord/alpha-nvim',
+      requires = { 'nvim-tree/nvim-web-devicons' },
+      config = function ()
+          require'alpha'.setup(require'alpha.themes.startify'.config)
+      end
+  }
 
   -- Icons
   use('nvim-tree/nvim-web-devicons')
@@ -42,8 +42,11 @@ return require('packer').startup(function(use)
 
   -- File navigation
   use {
-      'nvim-tree/nvim-tree.lua',
-      tag = 'nightly' -- optional, updated every week. (see issue #1193)
+    'nvim-tree/nvim-tree.lua',
+    requires = {
+      'nvim-tree/nvim-web-devicons',
+    },
+    tag = 'nightly' -- optional, updated every week. (see issue #1193)
   }
   use('theprimeagen/harpoon')
 
@@ -51,6 +54,10 @@ return require('packer').startup(function(use)
   use('nvim-lualine/lualine.nvim')
   use('akinsho/bufferline.nvim')
   use('moll/vim-bbye')
+
+  -- Indent guides
+  use('lukas-reineke/indent-blankline.nvim')
+  use('echasnovski/mini.nvim')
 
   -- Undotree
   use('mbbill/undotree')
