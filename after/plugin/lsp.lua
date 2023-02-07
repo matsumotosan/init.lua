@@ -5,7 +5,6 @@ lsp.preset('recommended')
 lsp.ensure_installed({
   'sumneko_lua',
   'eslint',
-  'pyright',
   'jedi_language_server',
 })
 
@@ -36,7 +35,5 @@ lsp.on_attach(function(client, bufnr)
     vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
     vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
 end)
-
--- lsp.nvim_workspace()
 
 lsp.setup()
