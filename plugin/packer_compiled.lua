@@ -170,11 +170,6 @@ _G.packer_plugins = {
     path = "/Users/shion/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
   },
-  ["mini.nvim"] = {
-    loaded = true,
-    path = "/Users/shion/.local/share/nvim/site/pack/packer/start/mini.nvim",
-    url = "https://github.com/echasnovski/mini.nvim"
-  },
   ["neodev.nvim"] = {
     loaded = true,
     path = "/Users/shion/.local/share/nvim/site/pack/packer/start/neodev.nvim",

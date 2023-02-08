@@ -53,7 +53,7 @@ return require('packer').startup(function(use)
 
     -- Indent guides
     use('lukas-reineke/indent-blankline.nvim')
-    use('echasnovski/mini.nvim')
+    -- use('echasnovski/mini.nvim')
 
     -- Undotree
     use('mbbill/undotree')
