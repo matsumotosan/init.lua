@@ -1,62 +1,38 @@
--- -- [[ Configure Telescope ]]
--- -- See `:help telescope` and `:help telescope.setup()`
--- require('telescope').setup {
---   defaults = {
---     mappings = {
---       i = {
---         ['<C-u>'] = false,
---         ['<C-d>'] = false,
---       },
---     },
---   },
--- }
---
--- -- Enable telescope fzf native, if installed
--- pcall(require('telescope').load_extension, 'fzf')
---
--- -- See `:help telescope.builtin`
--- vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
--- vim.keymap.set('n', '<leader><space>', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
--- vim.keymap.set('n', '<leader>/', function()
---   -- You can pass additional configuration to telescope to change theme, layout, etc.
---   require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
---     winblend = 10,
---     previewer = false,
---   })
--- end, { desc = '[/] Fuzzily search in current buffer' })
---
--- vim.keymap.set('n', '<leader>sf', require('telescope.builtin').find_files, { desc = '[S]earch [F]iles' })
--- vim.keymap.set('n', '<leader>sh', require('telescope.builtin').help_tags, { desc = '[S]earch [H]elp' })
--- vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
--- vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
--- vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
-
 return {
   'nvim-telescope/telescope.nvim',
-  cmd = "Telescope",
-  version = '*',
   dependencies = { 'nvim-lua/plenary.nvim' },
+  cmd = 'Telescope',
+  version = '*',
   keys = {
-    { "<leader>pf", "<cmd>Telescope find_files<cr>", desc = "Find files" },
-    --   { "<leader>,", "<cmd>Telescope buffers show_all_buffers=true<cr>", desc = "Switch Buffer" },
-    --   { "<leader>/", Util.telescope("live_grep"), desc = "Grep (root dir)" },
-    --   { "<leader>:", "<cmd>Telescope command_history<cr>", desc = "Command History" },
-    --   { "<leader><space>", Util.telescope("files"), desc = "Find Files (root dir)" },
-    -- find
-    { "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Buffers" },
-    -- { "<leader>ff", Util.telescope("files"), desc = "Find Files (root dir)" },
-    -- { "<leader>fF", Util.telescope("files", { cwd = false }), desc = "Find Files (cwd)" },
-    { "<leader>fr", "<cmd>Telescope oldfiles<cr>", desc = "Recent" },
+    -- search
+    { '<leader>sr', '<cmd>Telescope oldfiles<cr>', desc = 'Search recently opened files' },
+    { '<leader>sb', '<cmd>Telescope buffers<cr>', desc = 'Search buffers' },
+    { '<leader>sh', '<cmd>Telescope help_tags<cr>', desc = 'Search help' },
+    { '<leader>sf', '<cmd>Telescope find_files<cr>', desc = 'Find files' },
+    { '<leader>sw', '<cmd>Telescope grep_string<cr>', desc = 'Search word' },
+    { '<leader>sg', '<cmd>Telescope live_grep<cr>', desc = 'Search by grep' },
+    { '<leader>sd', '<cmd>Telescope diagnostics<cr>', desc = 'Search diagnostics' },
+    { '<leader>scb', '<cmd>Telescope current_buffer_fuzzy_find<cr>', desc = 'Search current buffer' },
+
     -- git
-    { "<leader>gc", "<cmd>Telescope git_commits<CR>", desc = "commits" },
-    { "<leader>gs", "<cmd>Telescope git_status<CR>", desc = "status" },
-    --   -- search
-    --   { "<leader>sa", "<cmd>Telescope autocommands<cr>", desc = "Auto Commands" },
-    --   { "<leader>sb", "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = "Buffer" },
-    --   { "<leader>sc", "<cmd>Telescope command_history<cr>", desc = "Command History" },
-    --   { "<leader>sC", "<cmd>Telescope commands<cr>", desc = "Commands" },
-    --   { "<leader>sd", "<cmd>Telescope diagnostics bufnr=0<cr>", desc = "Document diagnostics" },
-    --   { "<leader>sD", "<cmd>Telescope diagnostics<cr>", desc = "Workspace diagnostics" },
+    { "<leader>sgc", "<cmd>Telescope git_commits<CR>", desc = "commits" },
+    { "<leader>sgs", "<cmd>Telescope git_status<CR>", desc = "status" },
+  },
+}
+
+-- return {
+--   'nvim-telescope/telescope.nvim',
+--   cmd = "Telescope",
+--   version = '*',
+--   dependencies = { 'nvim-lua/plenary.nvim' },
+--   keys = {
+    -- search
+    -- { "<leader>sa", "<cmd>Telescope autocommands<cr>", desc = "Auto Commands" },
+    -- { "<leader>sb", "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = "Buffer" },
+    -- { "<leader>sc", "<cmd>Telescope command_history<cr>", desc = "Command History" },
+    -- { "<leader>sC", "<cmd>Telescope commands<cr>", desc = "Commands" },
+    -- { "<leader>sd", "<cmd>Telescope diagnostics bufnr=0<cr>", desc = "Document diagnostics" },
+    -- { "<leader>sD", "<cmd>Telescope diagnostics<cr>", desc = "Workspace diagnostics" },
     --   { "<leader>sg", Util.telescope("live_grep"), desc = "Grep (root dir)" },
     --   { "<leader>sG", Util.telescope("live_grep", { cwd = false }), desc = "Grep (cwd)" },
     --   { "<leader>sh", "<cmd>Telescope help_tags<cr>", desc = "Help Pages" },
@@ -105,8 +81,8 @@ return {
     --     }),
     --     desc = "Goto Symbol (Workspace)",
     --   },
-  },
-  opts = {
+  -- },
+  -- opts = {
     --   defaults = {
     --     prompt_prefix = " ",
     --     selection_caret = " ",
@@ -144,5 +120,5 @@ return {
     --       },
     --     },
     --   },
-  },
-}
+--   },
+-- }
