@@ -1,10 +1,11 @@
 local keymap = vim.keymap
 
+-- Show netrw
 keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
--- Better up/down
-keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
-keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+-- Remap for dealing with word wrap
+keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
 -- Move blocks of code
 keymap.set("v", "J", ":m '>+1<CR>gv=gv")
@@ -62,10 +63,6 @@ keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
 -- Clear search with <esc>
 keymap.set({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and clear hlsearch" })
-
--- Change buffers
-keymap.set("n", "<tab>", ":bnext<CR>")
-keymap.set("n", "<S-tab>", ":bprev<CR>")
 
 -- better indenting
 keymap.set("v", "<", "<gv")
