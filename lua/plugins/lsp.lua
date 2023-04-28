@@ -30,21 +30,34 @@
        local lsp = require('lsp-zero')
 
        lsp.on_attach(function(_, bufnr)
-         local opts = { buffer = bufnr, remap = false}
+         local function map(mode, lhs, rhs)
+           vim.keymap.set(mode, lhs, rhs, { buffer= bufnr })
+         end
 
-         vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
-         vim.keymap.set("n", "gD", function() vim.lsp.buf.declaration() end, opts)
-         vim.keymap.set("n", "gr", require('telescope.builtin').lsp_references, opts)
-         vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
-         vim.keymap.set("n", "gK", function() vim.lsp.buf.signature_help() end, opts)
-         vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
-         -- vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
-         vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, opts)
-         vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, opts)
-         vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, opts)
-         vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, opts)
-         -- vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
-         vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
+         map('n', 'gd', function() vim.lsp.buf.definition() end)
+         map('n', 'gD', function() vim.lsp.buf.declaration() end)
+         map('n', 'gi', vim.lsp.buf.implementation)
+         map('n', 'gr', require('telescope.builtin').lsp_references)
+         map('n', 'gR', vim.lsp.buf.references)
+
+         map('n', 'K', function() vim.lsp.buf.hover() end)
+         map({ 'n', 'i' }, '<C-s>', vim.lsp.buf.signature_help)
+         map('n', '<leader>vca', function() vim.lsp.buf.code_action() end)
+         map('n', '<leader>vrn', function() vim.lsp.buf.rename() end)
+
+         map('n', '<leader>li', vim.lsp.buf.incoming_calls)
+         map('n', '<leader>lo', vim.lsp.buf.outgoing_calls)
+         map('n', '<leader>lt', vim.lsp.buf.document_symbol)
+
+         map('n', '<leader>wa', vim.lsp.buf.add_workspace_folder)
+         map('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder)
+         map('n', '<leader>wl', function()
+           print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+         end)
+
+         map('n', '<leader>vd', function() vim.diagnostic.open_float() end)
+         map('n', '[d', function() vim.diagnostic.goto_next() end)
+         map('n', ']d', function() vim.diagnostic.goto_prev() end)
        end)
 
        -- (Optional) Configure lua language server for neovim
