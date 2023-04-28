@@ -21,9 +21,6 @@ return {
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
 
-  -- "gc" to comment visual regions/lines
-  { 'numToStr/Comment.nvim' },
-
   -- Automatically close parantheses, brackets, etc
   { 'windwp/nvim-autopairs' },
 
