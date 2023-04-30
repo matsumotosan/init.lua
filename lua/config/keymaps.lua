@@ -13,7 +13,6 @@ keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 -- Append line below
 keymap.set("n", "J", "mzJ`z")
--- keymap.set("n", "K", "i<CR><Esc>") -- not fixed
 
 -- Move to window using the <ctrl> hjkl keys
 keymap.set("n", "<C-h>", "<C-w>h", { desc = "Go to left window" })
@@ -48,14 +47,12 @@ keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 keymap.set("n", "<leader>Y", [[\"+Y]])
 keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 
+-- end of the world
 keymap.set("n", "Q", "<nop>")
 
 -- Change project folder
 keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 keymap.set("n", "<leader>f", vim.lsp.buf.format)
-
---
-keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
 
 -- Replace current work
 keymap.set("n", "<leader>r", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])

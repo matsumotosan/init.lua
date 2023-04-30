@@ -10,19 +10,13 @@ return {
   },
 
   -- Useful plugin to show you pending keybinds
-  { 'folke/which-key.nvim' },
-
-  { 'nvim-tree/nvim-web-devicons' },
+  { 'folke/which-key.nvim' , opts = {} },
+  { 'windwp/nvim-autopairs', opts = {} },
+  {'j-hui/fidget.nvim', opts = {} },
+  { 'nvim-tree/nvim-web-devicons' , opts = {} },
 
   -- Git
   'tpope/vim-fugitive',
   'tpope/vim-rhubarb',
-
-  -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
-
-  -- Automatically close parantheses, brackets, etc
-  { 'windwp/nvim-autopairs' },
-
-  'j-hui/fidget.nvim',
 }
