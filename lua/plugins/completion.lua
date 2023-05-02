@@ -21,7 +21,7 @@ return {
     -- And you can configure cmp even more, if you want to.
     local cmp = require('cmp')
     local lspkind = require('lspkind')
-    -- local cmp_action = require('lsp-zero.cmp').action()
+    local cmp_action = require('lsp-zero.cmp').action()
 
     cmp.setup({
       mapping = {
@@ -35,10 +35,9 @@ return {
           behavior = cmp.ConfirmBehavior.Insert,
           select = true,
         },
-        ['<tab>'] = cmp.config.disable,
 
-        -- ['<C-f>'] = cmp_action.luasnip_jump_forward(),
-        -- ['<C-b>'] = cmp_action.luasnip_jump_backward(),
+        ['<tab>'] = cmp_action.luasnip_jump_forward(),
+        ['<S-tab>'] = cmp_action.luasnip_jump_backward(),
       },
 
       sources = {

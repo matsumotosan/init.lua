@@ -2,10 +2,7 @@
    {
      'VonHeikemen/lsp-zero.nvim',
      branch = 'v2.x',
-     lazy = true,
      config = function()
-       -- This is where you modify the settings for lsp-zero
-       -- Note: autocompletion settings will not take effect
        require('lsp-zero.settings').preset({})
      end
    },
@@ -16,17 +13,12 @@
      cmd = 'LspInfo',
      event = {'BufReadPre', 'BufNewFile'},
      dependencies = {
+       {'folke/neodev.nvim', opts = {} },
        {'hrsh7th/cmp-nvim-lsp'},
        {'williamboman/mason-lspconfig.nvim'},
-       {
-         'williamboman/mason.nvim',
-         build = function()
-           pcall(vim.cmd, 'MasonUpdate')
-         end,
-       },
+       {'williamboman/mason.nvim', build = ':MasonUpdate'},
      },
      config = function()
-       -- This is where all the LSP shenanigans will live
        local lsp = require('lsp-zero')
 
        lsp.on_attach(function(_, bufnr)
@@ -61,9 +53,6 @@
          map('n', '[d', vim.diagnostic.goto_next)
          map('n', ']d', vim.diagnostic.goto_prev)
        end)
-
-       -- (Optional) Configure lua language server for neovim
-       -- require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
 
        lsp.setup()
      end
