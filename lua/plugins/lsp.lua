@@ -4,8 +4,6 @@
      branch = 'v2.x',
      lazy = true,
      config = function()
-       -- This is where you modify the settings for lsp-zero
-       -- Note: autocompletion settings will not take effect
        require('lsp-zero.settings').preset({})
      end
    },
@@ -26,7 +24,6 @@
        },
      },
      config = function()
-       -- This is where all the LSP shenanigans will live
        local lsp = require('lsp-zero')
 
        lsp.on_attach(function(_, bufnr)

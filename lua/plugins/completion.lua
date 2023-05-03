@@ -12,16 +12,12 @@ return {
     {'rafamadriz/friendly-snippets'},
   },
   config = function()
-    -- Here is where you configure the autocompletion settings.
-    -- The arguments for .extend() have the same shape as `manage_nvim_cmp`: 
-    -- https://github.com/VonHeikemen/lsp-zero.nvim/blob/v2.x/doc/md/api-reference.md#manage_nvim_cmp
     require('lsp-zero.cmp').extend()
     require('luasnip.loaders.from_vscode').lazy_load()
 
-    -- And you can configure cmp even more, if you want to.
     local cmp = require('cmp')
     local lspkind = require('lspkind')
-    -- local cmp_action = require('lsp-zero.cmp').action()
+    local cmp_action = require('lsp-zero.cmp').action()
 
     cmp.setup({
       mapping = {
@@ -35,10 +31,8 @@ return {
           behavior = cmp.ConfirmBehavior.Insert,
           select = true,
         },
-        ['<tab>'] = cmp.config.disable,
-
-        -- ['<C-f>'] = cmp_action.luasnip_jump_forward(),
-        -- ['<C-b>'] = cmp_action.luasnip_jump_backward(),
+        ['<tab>'] = cmp_action.luasnip_jump_forward(),
+        ['<S-tab>'] = cmp_action.luasnip_jump_backward(),
       },
 
       sources = {
