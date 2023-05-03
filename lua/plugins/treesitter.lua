@@ -1,6 +1,6 @@
 return {
   'nvim-treesitter/nvim-treesitter',
-  builkd = 'TSUpdate',
+  build = 'TSUpdate',
   event = {
     'BufReadPost',
     'BufNewFile',
