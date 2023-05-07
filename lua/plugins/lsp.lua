@@ -8,7 +8,6 @@
      end
    },
 
-   -- LSP
    {
      'neovim/nvim-lspconfig',
      cmd = 'LspInfo',

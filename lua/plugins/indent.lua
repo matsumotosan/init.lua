@@ -3,8 +3,21 @@ return {
   event = { "BufReadPost", "BufNewFile" },
   opts = {
     char = "│",
-    filetype_exclude = { "help", "alpha", "dashboard", "neo-tree", "Trouble", "lazy" },
+    filetype_exclude = {
+      "alpha",
+      "checkhealth",
+      "dashboard",
+      "help",
+      "lazy",
+      "lspinfo",
+      "man",
+      "neo-tree",
+      "Trouble",
+    },
+    bufname_exclude = {
+      'README.md',
+    },
     show_trailing_blankline_indent = false,
-    show_current_context = false,
+    show_current_context = true,
   },
 }

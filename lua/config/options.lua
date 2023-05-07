@@ -4,6 +4,8 @@ vim.g.maplocalleader = " "
 vim.opt.guicursor = ""
 vim.opt.cursorline = true
 
+vim.opt.background = 'dark'
+
 vim.opt.nu = true
 vim.opt.relativenumber = true
 

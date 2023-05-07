@@ -61,7 +61,7 @@ return {
 
       snippet = {
         expand = function(args)
-          require('luansnip').lsp_expand(args.body)
+          require('luasnip').lsp_expand(args.body)
         end,
       },
 
